@@ -23,7 +23,7 @@ const airbnbSchema = new mongoose.Schema({
 
 const Airbnbs = mongoose.model('Airbnbs', airbnbSchema);
 
-app.get('/api/moreplacestostay', (req, res) => {
+app.get('/api/moreplacestostay', (req, res) => { // Make different API call urls + have them return 12 docs
   Airbnbs.find({}, (err, data) => {
     if (err) res.status(404).send(err);
     res.send(data);
