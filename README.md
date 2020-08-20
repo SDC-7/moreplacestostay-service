@@ -71,6 +71,7 @@ npm run server
 This initiates the server, and backend connection to the database. Next, open another terminal window, and run the following command: 
 
 ```sh
+npm run build
 npm run serve
 ```
 
