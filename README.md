@@ -22,7 +22,7 @@
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-Dependencies: 
+Dependencies:
 
 - Node 6.13.0
 - Express 4.17.1
@@ -50,25 +50,25 @@ Dependencies:
 
 From within the root directory:
 
-Install all dependencies listed above. 
+Install all dependencies listed above.
 
 ### Running the Module
 
-Seed the database using the following command: 
+Seed the database using the following command:
 
 ```sh
 npm run database
 ```
 
-This will seed the database with 100 properties including property name, price per night, and an image from S3. 
+This will seed the database with 100 properties including property name, price per night, and an image from S3.
 
-Next, run: 
+Next, run:
 
 ```sh
-npm run server
+npm start
 ```
 
-This initiates the server, and backend connection to the database. Next, open another terminal window, and run the following command: 
+This initiates the server, and backend connection to the database. Next, open another terminal window, and run the following command:
 
 ```sh
 npm run build
@@ -79,11 +79,23 @@ This initiates Webpack, enabling the user to visualize the module online. Direct
 
 ### Testing
 
-To run tests: 
+To run tests:
 
 ```sh
 npm run test
 ```
+
+### CRUD Functionality
+
+GET Request -- send requests to '/api/moreplacestostay'. As currently written, the server will respond will all places and you will have to sort on front-end. This will be fixed in later versions of SDC as its untenable.
+
+DELETE Request -- send requests to '/api/moreplacestostay/:id' where id is unique identifier for the location you would like to delete.
+
+POST Request -- send requests to '/api/placestostay/create.' In the body of your post request, include name (as string), price(as integer), imageurl(as string).
+
+PUT request -- send requests to '/api/placestostay/:id' where id is unique identifier for the location you would like to delete. In the body of your post request, include name (as string), price(as integer), imageurl(as string).
+
+
 
 
 
