@@ -10,8 +10,10 @@ const stream = fs.createWriteStream(filename)
 const createResidence = () => {
   const residenceName = faker.company.companyName();
   const price = faker.commerce.price();
+  const lat = faker.address.latitude();
+  const long = faker.address.longitude();
   const url = helpers.generateRandomImage();
-  return `${residenceName},${price},${url}\n`
+  return `${residenceName},${price},${lat},${long},${url}\n`
 }
 
 const startWriting = (writeStream, encoding, done) => {
@@ -27,6 +29,7 @@ const startWriting = (writeStream, encoding, done) => {
         writeStream.write(residence, encoding)
       }
     } while (i > 0 && canWrite)
+
       if (i > 0 && !canWrite) {
         writeStream.once('drain', writing);
       }
@@ -34,7 +37,7 @@ const startWriting = (writeStream, encoding, done) => {
     writing();
   }
 
-  stream.write(`residenceName,price,url\n`,'utf-8')
+  stream.write(`residenceName,price,lat,long,url\n`,'utf-8')
   startWriting(stream, 'utf-8', () => {
     stream.end();
   })
