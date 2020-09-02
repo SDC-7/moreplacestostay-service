@@ -59,6 +59,3 @@ var findDocuments = function(db, long, lat, callback) {
     callback(docs);
   });
 }
-
-
-
