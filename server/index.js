@@ -22,6 +22,7 @@ const airbnbSchema = new mongoose.Schema({
   name: String,
   price: Number,
   imageurl: String,
+
 });
 
 const Airbnbs = mongoose.model('Airbnbs', airbnbSchema);

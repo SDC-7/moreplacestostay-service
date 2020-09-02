@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://127.0.0.1:3030/api/moreplacestostay')
+    axios.get(`http://localhost:3000/residences${window.location.pathname}`)
       .then(data => {
         this.setState({
           places: data.data
@@ -44,7 +44,7 @@ class App extends React.Component {
           {items.map((place) => {
             return (
               <div className="slick-slide" key={place.name}>
-                <img className="slick-slide-image" width = "100%" src = {place.imageurl} />
+                <img className="slick-slide-image" width = "100%" src = {`https://sharedrentals.s3.amazonaws.com/${place.url}.jpg`} />
                 <h4 className="slick-slide-title"> {place.name} </h4>
                 <h5 className="slick-slide-label"> ${place.price} / night </h5>
               </div>
