@@ -29,5 +29,6 @@ module.exports.geospatialQuery = function(longitude, latitude) {
         )
     LIMIT 12;`
     return queryString
-};
+}
+
 
