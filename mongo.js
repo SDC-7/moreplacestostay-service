@@ -16,18 +16,22 @@ MongoClient.connect(url, function(err, client) {
 var findDocuments = function(db, callback) {
   // Get the documents collection
   var collection = db.collection('residences');
+
+  var query =
+    { location :
+      { $near :
+        { $geometry:
+          { type: "Point",
+            coordinates: [ -73.9667, 40.78 ] },
+            $maxDistance: 100000
+        }
+      }
+    }
   // Find some documents
-  collection.find(
-	{ location :
-	  { $near :
-	    { $geometry:
-        { type: "Point",
-          coordinates: [ -73.9667, 40.78 ] },
-	        $maxDistance: 100000
-	    }
-	  }
-	}
-  ).toArray(function(err, docs) {
+  collection
+  .find query
+  .limit 12
+  .toArray(function(err, docs) {
     assert.equal(err, null);
     console.log("Found the following records");
     console.log(docs);
