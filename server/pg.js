@@ -9,5 +9,5 @@ const mountRoutes = require('../routes')
 mountRoutes(app)
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at port ${port}`)
 });
