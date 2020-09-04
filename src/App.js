@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:3000/residences${window.location.pathname}`)
+    axios.get(`/residences${window.location.pathname}`)
       .then(data => {
         this.setState({
           places: data.data
