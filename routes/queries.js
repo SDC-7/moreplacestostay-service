@@ -28,7 +28,10 @@ module.exports.geospatialQuery = function(longitude, latitude) {
         'SRID=4326;POINT(${longitude} ${latitude})'::geometry
         )
     LIMIT 12;`
+    // `SELECT id, name, price, url
+    // FROM residences
+    // ORDER BY geom <-> 'SRID=4326;POINT(${longitude} ${latitude})'::geometry
+    // LIMIT 12;`;
     return queryString
 }
-
 

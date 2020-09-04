@@ -1,5 +1,5 @@
 node_modules/
-db/pg_config.js
 residences.csv
 residencesSmall.csv
 schema.sql
+.env

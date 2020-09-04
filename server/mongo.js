@@ -15,7 +15,7 @@ MongoClient.connect(url, function(err, client) {
   db = client.db(collection)
 
 
-  app.get('/:id', (req, res) => {
+  app.get('/residences/:id', (req, res) => {
     var id = Number(req.params.id);
     findLatitudeAndLongitude(db, id, (data) => {
       if (data === 'Error') return res.sendStatus(500);
