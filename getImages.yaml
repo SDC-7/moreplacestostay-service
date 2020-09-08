@@ -1,0 +1,19 @@
+config:
+  target: "http://localhost:8080"
+  phases:
+    - duration: 30
+      arrivalRate: 1
+      name: Warm up
+    - duration: 30
+      arrivalRate: 10
+      name: Ramp up load
+    - duration: 180
+      arrivalRate: 100
+      name: Sustained load
+scenarios:
+  - name: "Get images"
+    flow:
+      - loop:
+        - get:
+            url: "/residences/{{$randomNumber(0,10000000)}}"
+        count: 1
