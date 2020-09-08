@@ -9,7 +9,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['sdc_capstone'],
+  app_name: ['sdc_service_aws'],
   /**
    * Your New Relic license key.
    */
