@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://52.86.81.46/residences${window.location.pathname}`)
+    axios.get(`/residences${window.location.pathname}`)
       .then(data => {
         this.setState({
           places: data.data
