@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
           client.query(geospatialQuery(longitude, latitude))
           .then(response => {
             client.release();
-            redisClient().set(id, JSON.stringify(response.rows));
+            redisClient().set(id, JSON.stringify(response.rows), 'EX', 60 * 60 * 24);
             console.log('Cached');
             res.send(response.rows);
           })
